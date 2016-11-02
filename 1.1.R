@@ -1,0 +1,10 @@
+#!/usr/bin/env Rscript
+png(file = "1-1.png", width=1000, height=500)
+expire <- readLines("flow-expire-hourly")
+continue <- readLines("flow-continue-hourly")
+x <- seq(length(expire))
+plot(x, expire, type="l", main=("Hourly data of flow-expire and flow-continue"), ylab=("Amount of data (bytes)"), xlab=("Time since Mon 17 Feb 2014 02:57:40 EET GMT+2:00 (hours)"))
+par(new = TRUE)
+plot(x, continue, type="c", col="red", lwd=2, main=(" "), xlab=(" "), ylab=(" "))
+legend("topright", c("expired", "continue"), lty=c(1, 2), lwd=c(1, 2), col=c("black", "red"))
+dev.off()

@@ -1,0 +1,10 @@
+#!/usr/bin/env Rscript
+png(file = "1-2.png", width=1000, height=500)
+expiresports <- read.csv("expiresports", header=FALSE, sep=",")
+continuesports <- read.csv("continuesports", header=FALSE, sep=",")
+plot(expiresports$V1, expiresports$V2, main=("Number of flows to each destination port"), xlab=("Anonymized port number (N)"), ylab=("Number of flows (N)"), xaxt="n", lwd=5)
+axis(1)
+par(new = TRUE)
+plot(continuesports$V1, continuesports$V2, main=(" "), xlab=(" "), ylab=(" "), lwd=5, axes=FALSE, col="red")
+legend("topright", c("expired", "continue"), lty=c(19, 19), lwd=c(5, 5), col=c("black", "red"))
+dev.off()
